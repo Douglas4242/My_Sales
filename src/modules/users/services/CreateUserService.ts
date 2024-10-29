@@ -9,7 +9,7 @@ interface ICreateUser {
   password: string;
 }
 
-export default class CreteUserService {
+export default class CreateUserService {
   async execute({ name, email, password }: ICreateUser): Promise<User> {
     const emailExists = await usersRepositories.findByEmail(email);
 
