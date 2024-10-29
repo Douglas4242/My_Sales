@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
 @Entity('users')
 class User {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   name: string;
@@ -23,3 +23,5 @@ class User {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export default User
