@@ -1,5 +1,5 @@
 import AppError from '@shared/erros/AppError';
-import User from '../database/entites/User';
+import User from '../database/entities/User';
 import { usersRepositories } from '../database/repositories/UserRepositories';
 import { hash } from 'bcrypt';
 
