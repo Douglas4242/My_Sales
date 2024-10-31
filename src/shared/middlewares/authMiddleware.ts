@@ -20,7 +20,9 @@ export default class AuthMiddleware {
       throw new AppError('JWT Token is missing.', 401);
     }
 
-    const [, token] = authHeader.split('');
+    const [, token] = authHeader.split(' ');
+    console.log('Authorization Header:', authHeader);
+
 
     try {
       const decodedToken = verify(token, process.env.APP_SECRET as Secret);
