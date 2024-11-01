@@ -13,7 +13,6 @@ interface IUpdateUserAvatar {
 export default class UpdateUserAvatarService {
   async execute({ userId, avatarFileName }: IUpdateUserAvatar): Promise<User> {
     const user = await usersRepositories.findById(userId);
-
     if (!user) {
       throw new AppError('User not found.', 404);
     }

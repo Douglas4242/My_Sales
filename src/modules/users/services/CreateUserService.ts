@@ -24,7 +24,6 @@ export default class CreateUserService {
       email,
       password: hashedPassword,
     });
-
     await usersRepositories.save(user);
 
     return user;

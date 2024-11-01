@@ -21,7 +21,6 @@ export default class AuthMiddleware {
     }
 
     const [, token] = authHeader.split(' ');
-    console.log('Authorization Header:', authHeader);
 
 
     try {
