@@ -4,7 +4,7 @@ import UserToken from '../entities/UserToken';
 export const userTokensRepositories = AppDataSource.getRepository(
   UserToken,
 ).extend({
-  async userToken(token: string): Promise<UserToken | null> {
+  async findByToken(token: string): Promise<UserToken | null> {
     const userToken = await this.findOneBy({ token });
     return userToken;
   },
