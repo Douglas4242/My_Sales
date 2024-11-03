@@ -16,7 +16,6 @@ export default class UpdateUserAvatarService {
     if (!user) {
       throw new AppError('User not found.', 404);
     }
-
     if (user.avatar) {
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
       const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
@@ -25,7 +24,6 @@ export default class UpdateUserAvatarService {
         await fs.promises.unlink(userAvatarFilePath);
       }
     }
-
     user.avatar = avatarFileName;
     await usersRepositories.save(user);
     return user;

@@ -7,7 +7,6 @@ import AuthMiddleware from '@shared/middlewares/authMiddleware';
 const avatarRouter = Router();
 const userAvatarController = new UpdateAvatarControllers();
 const upload = multer(uploadConfig);
-
 avatarRouter.patch(
   '/',
   AuthMiddleware.execute,
