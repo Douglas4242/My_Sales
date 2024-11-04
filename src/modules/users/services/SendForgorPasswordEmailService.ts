@@ -1,6 +1,7 @@
 import AppError from '@shared/erros/AppError';
 import { usersRepositories } from '../database/repositories/UserRepositories';
 import { userTokensRepositories } from '../database/repositories/UserTokensRepositories';
+import { sendEmail } from '@config/email';
 
 interface IForgotPassword {
   email: string;
@@ -16,6 +17,12 @@ export default class SendForgorPasswordEmailService {
 
     const token = await userTokensRepositories.generate(user.id);
 
-    console.log(token);
+    console.log(token)
+
+    sendEmail({
+      to: email,
+      subject: 'My Sales Recovery Password',
+      body: `<div>${token?.token}</div>`,
+    });
   }
 }
